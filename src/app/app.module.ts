@@ -34,6 +34,12 @@ import { AddbookComponent } from './booklist/addbook/addbook.component';
 import { StepsModule } from 'primeng/steps';
 import { MessageModule } from 'primeng/message';
 import { NamepassComponent } from './namepass/namepass.component';
+
+import {MatStepperModule} from '@angular/material/stepper';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +75,9 @@ import { NamepassComponent } from './namepass/namepass.component';
     SliderModule,
     MultiSelectModule,
     ContextMenuModule,
+    MatStepperModule,
+    ReactiveFormsModule,MatFormFieldModule,MatInputModule
+    
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],

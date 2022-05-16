@@ -30,8 +30,12 @@
   </div>
 </div>
 <hr /> -->
-
-<div>
-  <p-steps [model]="items"></p-steps>
+<div class="d-flex flex-row justify-content-md-center">
+  <div class="col-10">
+    <div>
+      <p-steps [model]="items" ></p-steps>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<router-outlet></router-outlet>
+
