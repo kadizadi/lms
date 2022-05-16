@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-namepass',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./namepass.component.css'],
 })
 export class NamepassComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
+  ngOnInit() {
+    
+  }
 
-  ngOnInit(): void {}
+  navigateToNext() {
+    this.router.navigate(['/steps/seat'])
+  }
   nextPage() {
     // if (
     //   this.personalInformation.firstname &&

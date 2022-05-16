@@ -1,20 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
+  providers: [MessageService],
+  
 })
 export class RegistrationComponent implements OnInit {
   constructor() {}
   items: MenuItem[];
+
+  activeIndex: number = 0;
+
   ngOnInit(): void {
     this.items = [
-      { label: 'Step 1' },
-      { label: 'Step 2' },
-      { label: 'Step 3' },
+      {
+        label: 'step1',
+        routerLink: 'namepass',
+      },
+      {
+        label: 'step2',
+        routerLink: 'namepass',
+      },
+      
     ];
   }
 }

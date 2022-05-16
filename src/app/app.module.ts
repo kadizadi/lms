@@ -33,7 +33,7 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { AddbookComponent } from './booklist/addbook/addbook.component';
 import { StepsModule } from 'primeng/steps';
 import { MessageModule } from 'primeng/message';
-import { NamepassComponent } from './registration/namepass/namepass.component';
+import { NamepassComponent } from './namepass/namepass.component';
 @NgModule({
   declarations: [
     AppComponent,
