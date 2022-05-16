@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   items: MenuItem[];
   ngOnInit(): void {
     this.items = [
-      { label: 'Step 1', },
+      { label: 'Step 1' },
       { label: 'Step 2' },
       { label: 'Step 3' },
     ];
