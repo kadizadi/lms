@@ -14,25 +14,25 @@ const routes: Routes = [
   { path: 'librarian', component: LibrarianComponent },
   { path: 'user', component: UserComponent },
   { path: 'books', component: BooklistComponent },
-  // { path: 'registration', component: RegistrationComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: 'namepass', component: NamepassComponent },
 
-  {
-    path: 'registration',
-    component: RegistrationComponent,
-    children: [{
-        path: '',
-        redirectTo: 'namepass',
-        pathMatch: 'full'
-      },
-      {
-        path: 'namepass',
-        component: NamepassComponent
-      },
+  // {
+  //   path: 'registration',
+  //   component: RegistrationComponent,
+  //   children: [{
+  //       path: '',
+  //       redirectTo: 'namepass',
+  //       pathMatch: 'full'
+  //     },
+  //     {
+  //       path: 'namepass',
+  //       component: NamepassComponent
+  //     },
       
       
-    ],
-  },
+  //   ],
+  // },
   
 
 
