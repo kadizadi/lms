@@ -1,0 +1,35 @@
+<div class="row justify-content-md-center">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h3>registration</h3>
+        <br /><br /><br />
+        <form>
+          <input type="username" pInputText placeholder="name" class="space" />
+          <br />
+          <input type="email" pInputText placeholder="email" class="space" />
+          <br />
+          <input
+            type="password"
+            pInputText
+            placeholder="password"
+            class="space"
+          />
+          <br />
+          <input
+            type="password"
+            pInputText
+            placeholder="confirm password"
+            class="space"
+          />
+          <br />
+          <button pButton type="button" label="submit"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<p-toast></p-toast>
+<p-steps [model]="items" [readonly]="false"></p-steps>
+<router-outlet></router-outlet>
