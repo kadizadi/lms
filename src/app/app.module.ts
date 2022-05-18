@@ -30,15 +30,16 @@ import { CalendarModule } from 'primeng/calendar';
 import { SliderModule } from 'primeng/slider';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ContextMenuModule } from 'primeng/contextmenu';
-import { AddbookComponent } from './booklist/addbook/addbook.component';
 import { StepsModule } from 'primeng/steps';
 import { MessageModule } from 'primeng/message';
 import { NamepassComponent } from './namepass/namepass.component';
 
-import {MatStepperModule} from '@angular/material/stepper';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { BorrowlistComponent } from './borrowlist/borrowlist.component';
+import { AddbookComponent } from './addbook/addbook.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +52,9 @@ import { MatInputModule } from '@angular/material/input';
     NavbarComponent,
     LibrarianComponent,
     UserComponent,
-    AddbookComponent,
     NamepassComponent,
+    BorrowlistComponent,
+    AddbookComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,8 +78,9 @@ import { MatInputModule } from '@angular/material/input';
     MultiSelectModule,
     ContextMenuModule,
     MatStepperModule,
-    ReactiveFormsModule,MatFormFieldModule,MatInputModule
-    
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],

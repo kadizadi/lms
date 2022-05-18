@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MenuItem, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -10,15 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
   providers: [MessageService],
-  
 })
 export class RegistrationComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;
-  
-  constructor(private router: Router,private _formBuilder: FormBuilder) {}
-  
+
+  constructor(private router: Router, private _formBuilder: FormBuilder) {}
+
   // items: MenuItem[];
 
   // activeIndex: number = 0;
@@ -33,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   //       label: 'step2',
   //       routerLink: 'namepass',
   //     },
-      
+
   //   ];
   // }
   ngOnInit(): void {
