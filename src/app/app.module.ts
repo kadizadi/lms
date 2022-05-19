@@ -40,6 +40,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BorrowlistComponent } from './borrowlist/borrowlist.component';
 import { AddbookComponent } from './addbook/addbook.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -81,8 +82,9 @@ import { AddbookComponent } from './addbook/addbook.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
   ],
-  providers: [MessageService, ConfirmationService],
+  providers: [MessageService, ConfirmationService, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
