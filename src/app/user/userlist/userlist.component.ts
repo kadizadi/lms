@@ -6,6 +6,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmEventType } from 'primeng/api';
 import { Message } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
@@ -22,57 +23,74 @@ export class UserlistComponent implements OnInit {
   // mydate?: Date;
   constructor(
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private myusers:UserService
   ) {}
 
   focusout(user: User) {
     console.log(user.name);
+    this.myusers.updateuser(user).subscribe((deta) => {
+        
+     
+
+      
+    });
   }
 
   ngOnInit(): void {
-    this.users = [
-      {
-        name: 'k',
-        username: 'k@k.com',
-        password: '123',
-        enabled: true,
-      },
-      {
-        name: 's',
-        username: 's@s.com',
-        password: '123',
-        enabled: true,
-      },
-    ];
+    // this.users = [
+    //   {
+    //     name: 'k',
+    //     username: 'k@k.com',
+    //     password: '123',
+    //     enabled: true,
+    //   },
+    //   {
+    //     name: 's',
+    //     username: 's@s.com',
+    //     password: '123',
+    //     enabled: true,
+    //   },
+    // ];
+    this.myusers.getUsers().subscribe((deta) => {
+        
+      this.users = deta;
+
+      
+    });
     this.cols = [
       { field: 'name', header: 'Name' },
 
       { field: 'username', header: 'username' },
     ];
   }
-  deleteSelectedProducts() {
-    this.confirmationService.confirm({
-      message: 'Are you sure you want to delete the selected products?',
-      header: 'Confirm',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.users = this.users.filter(
-          (val) => !this.selectedUsers.includes(val)
-        );
-        this.selectedUsers = [];
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Successful',
-          detail: 'Products Deleted',
-          life: 3000,
-        });
-      },
-    });
-  }
+  // deleteSelectedProducts() {
+  //   this.confirmationService.confirm({
+  //     message: 'Are you sure you want to delete the selected products?',
+  //     header: 'Confirm',
+  //     icon: 'pi pi-exclamation-triangle',
+  //     accept: () => {
+  //       this.users = this.users.filter(
+  //         (val) => !this.selectedUsers.includes(val)
+  //       );
+  //       // delete this.users[this.users.findIndex(this.u)];
+
+  //       this.selectedUsers = [];
+  //       this.messageService.add({
+  //         severity: 'success',
+  //         summary: 'Successful',
+  //         detail: 'Products Deleted',
+  //         life: 3000,
+  //       });
+  //     },
+  //   });
+  // }
 
   editProduct(user: User) {
     console.log('hi');
     this.user = { ...user };
+    
+
     this.productDialog = true;
   }
 
@@ -82,8 +100,10 @@ export class UserlistComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.users = this.users.filter((val) => val.name !== user.name);
+        this.myusers.deleteuser(user).subscribe((deta) => {        });
+        this.users = this.users.filter((val) => val.username !== user.username);
         // this.user = null;
+        
         this.messageService.add({
           severity: 'success',
           summary: 'Successful',

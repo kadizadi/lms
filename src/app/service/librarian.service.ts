@@ -9,8 +9,11 @@ import { User } from '../entites/User';
 export class LibrarianService {
   constructor(private http: HttpClient) {}
 
-  private baseUrl = 'http://localhost:8080/users';
-  getUser(username: string) {
+  private baseUrl = 'http://localhost:8080/librarians';
+  getLibrarian(username: string) {
     return this.http.get<User>(`${this.baseUrl}/${username}`);
+  }
+  getLibrarians() {
+    return this.http.get<User>(`${this.baseUrl}`);
   }
 }

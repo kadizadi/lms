@@ -47,3 +47,4 @@ src/styles.css
 .gitignore
 package-lock.json
 package-lock.json
+proxy.conf.json

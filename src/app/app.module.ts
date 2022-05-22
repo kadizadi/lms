@@ -41,6 +41,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BorrowlistComponent } from './borrowlist/borrowlist.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdduserComponent } from './adduser/adduser.component';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     NamepassComponent,
     BorrowlistComponent,
     AddbookComponent,
+    AdduserComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +86,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    FormGroup,
+    FormControl,
+    Validators
   ],
   providers: [MessageService, ConfirmationService, HttpClientModule],
   bootstrap: [AppComponent],
