@@ -24,17 +24,12 @@ export class UserlistComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private myusers:UserService
+    private myusers: UserService
   ) {}
 
   focusout(user: User) {
     console.log(user.name);
-    this.myusers.updateuser(user).subscribe((deta) => {
-        
-     
-
-      
-    });
+    this.myusers.updateuser(user).subscribe((deta) => {});
   }
 
   ngOnInit(): void {
@@ -53,10 +48,7 @@ export class UserlistComponent implements OnInit {
     //   },
     // ];
     this.myusers.getUsers().subscribe((deta) => {
-        
       this.users = deta;
-
-      
     });
     this.cols = [
       { field: 'name', header: 'Name' },
@@ -89,7 +81,6 @@ export class UserlistComponent implements OnInit {
   editProduct(user: User) {
     console.log('hi');
     this.user = { ...user };
-    
 
     this.productDialog = true;
   }
@@ -100,10 +91,10 @@ export class UserlistComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.myusers.deleteuser(user).subscribe((deta) => {        });
+        this.myusers.deleteuser(user).subscribe((deta) => {});
         this.users = this.users.filter((val) => val.username !== user.username);
         // this.user = null;
-        
+
         this.messageService.add({
           severity: 'success',
           summary: 'Successful',

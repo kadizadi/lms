@@ -36,11 +36,11 @@ export class AdduserComponent implements OnInit {
     //   this.username,
     //   this.password
     // );
-
+    console.log('in onsubmitt');
     this.myuser.dateofcreation = new Date();
-    this.myuser.password = this.password;
     this.myuser.enabled = true;
     console.log(this.myuser);
+    this.myusers.addUser(this.myuser).subscribe((deta) => {});
     // console.log(this.fname);
   }
 }

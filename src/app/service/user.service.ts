@@ -31,16 +31,4 @@ export class UserService {
   addUser(user: User) {
     return this.http.post(`${this.baseUrl}`, user);
   }
-  dateofcreation: Date;
-  tepmuser: User;
-  getusercalss(name: string, username: string, password: string): User {
-    this.dateofcreation = new Date();
-
-    this.tepmuser.dateofcreation = this.dateofcreation;
-    this.tepmuser.username = username;
-    this.tepmuser.name = name;
-    this.tepmuser.password = password;
-    this.tepmuser.enabled = true;
-    return this.tepmuser;
-  }
 }
