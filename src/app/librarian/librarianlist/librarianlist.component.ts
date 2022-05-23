@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Librarian } from '../../entites/Librarian';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { LibrarianService } from 'src/app/service/librarian.service';
 
 @Component({
   selector: 'app-librarianlist',
@@ -21,24 +22,28 @@ export class LibrarianlistComponent implements OnInit {
   // mydate?: Date;
   constructor(
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private myLibrarian: LibrarianService
   ) {}
 
   ngOnInit(): void {
-    this.Librarians = [
-      {
-        name: 'k',
-        username: 'k@k.com',
-        password: '123',
-        enabled: true,
-      },
-      {
-        name: 's',
-        username: 's@s.com',
-        password: '123',
-        enabled: true,
-      },
-    ];
+    // this.Librarians = [
+    //   {
+    //     name: 'k',
+    //     username: 'k@k.com',
+    //     password: '123',
+    //     enabled: true,
+    //   },
+    //   {
+    //     name: 's',
+    //     username: 's@s.com',
+    //     password: '123',
+    //     enabled: true,
+    //   },
+    // ];
+    this.myLibrarian.getLibrarians().subscribe((deta) => {
+      this.Librarians = deta;
+    });
     this.cols = [
       { field: 'name', header: 'Name' },
 
