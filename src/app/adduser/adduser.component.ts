@@ -3,6 +3,7 @@ import { User } from '../entites/User';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { NgForm } from '@angular/forms';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-adduser',
@@ -10,32 +11,42 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
-  @ViewChild('f', { static: false }) signupForm: NgForm;
-myuser:User;
+  //@ViewChild('f', { static: false }) signupForm: NgForm;
 emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; 
+private myuser:User
 fname:string;
-email:string;
+username:string;
 password:string;
-// form = new FormGroup({
-//   firstName: new FormControl('', Validators.required),
-//   lastName: new FormControl('', Validators.required),
-//   email: new FormControl('', [
-//     Validators.required,
-//     Validators.email
-//   ]),
-//   password: new FormControl('', [
-//     Validators.required,
-//     Validators.minLength(6)
-//   ])
+mydate:Date  = new Date();
+form = new FormGroup({
+  firstName: new FormControl('', Validators.required),
+  lastName: new FormControl('', Validators.required),
+  email: new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]),
+  password: new FormControl('', [
+    Validators.required,
+    Validators.minLength(6)
+  ])
   
-//  });
-  constructor() { }
+ });
+  constructor( private myusers:UserService   ) { }
 
   ngOnInit(): void {
   }
   onSubmit() {
-
-    console.log(this.fname);
+    this.myuser= this.myusers.getusercalss(this.fname,this.username, this.password);
+    
+    
+    
+    // this.myuser.dateofcreation = this.mydate;
+    // this.myuser.username = this.email;
+    // this.myuser.name=this.fname;
+    // this.myuser.password=this.password;
+    // this.myuser.enabled=true;
+    console.log(this.myuser);
+    // console.log(this.fname);
   }
 
 }

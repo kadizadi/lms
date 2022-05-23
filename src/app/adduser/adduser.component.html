@@ -10,21 +10,23 @@
               <label for="firstName">First Name</label>
               <input
                 [(ngModel)]="fname"
+
                 type="text"
                 class="form-control"
-                formControlName="firstName"
+                [ngModelOptions]="{standalone: true}"
                 required
               />
+              
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
               <input
-              
-                [(ngModel)]="email"
+              [ngModelOptions]="{standalone: true}"
+
+                [(ngModel)]="username"
                 type="text"
                 class="form-control"
-                formControlName="email"
                 required
                 email
               />
@@ -32,10 +34,11 @@
             <div class="form-group">
               <label for="password">Password</label>
               <input
+              [ngModelOptions]="{standalone: true}"
+
                 [(ngModel)]="password"
                 type="password"
                 class="form-control"
-                formControlName="password"
                 required
               />
             </div>
