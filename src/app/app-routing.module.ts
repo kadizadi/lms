@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'librarian', component: LibrarianComponent },
   { path: 'user', component: UserComponent },
   { path: 'books', component: BooklistComponent },
-  { path: 'registration', component: RegistrationComponent },
+  { path: 'registration', component: RegistrationComponent }, //canActivate:
   { path: 'namepass', component: NamepassComponent },
 
   // {
@@ -29,13 +29,9 @@ const routes: Routes = [
   //       path: 'namepass',
   //       component: NamepassComponent
   //     },
-      
-      
+
   //   ],
   // },
-  
-
-
 
   // {
   //   path: 'registration',
