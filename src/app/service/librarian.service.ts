@@ -19,8 +19,10 @@ export class LibrarianService {
 
   deleatLibrarian: string;
   deleteLibrarian(librarian: Librarian) {
+    
     this.deleatLibrarian = librarian.username!;
-
+    console.log(librarian.username);
+    
     return this.http.delete(`${this.baseUrl}/${this.deleatLibrarian}`);
   }
   updateLibrarian(librarian: Librarian) {

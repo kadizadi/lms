@@ -1,7 +1,7 @@
 <div class="row justify-content-md-center">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <p-table [value]="Librarians">
-      <ng-template pTemplate="caption"> Users List </ng-template>
+      <ng-template pTemplate="caption"> librarian List </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
@@ -9,24 +9,41 @@
           <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-user>
+      <ng-template pTemplate="body" let-librarian>
         <tr>
-          <td>{{ user.name }}</td>
-          <td>{{ user.username }}</td>
+
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="librarian.name"
+                  (focusout)="focusout(librarian)"
+                />
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ librarian.name }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+
+          <!-- <td>{{ librarian.name }}</td> -->
+          <td>{{ librarian.username }}</td>
           <td>
-            <button
+            <!-- <button
               pButton
               pRipple
               icon="pi pi-pencil"
               class="p-button-rounded p-button-success mr-2"
-              (click)="editLibrarian(user)"
-            ></button>
+              (click)="editLibrarian(librarian)"
+            ></button> -->
             <button
               pButton
               pRipple
               icon="pi pi-trash"
               class="p-button-rounded p-button-warning"
-              (click)="deleteLibrarian(user)"
+              (click)="deleteLibrarian(librarian)"
             ></button>
           </td>
         </tr>
@@ -34,3 +51,7 @@
     </p-table>
   </div>
 </div>
+<p-confirmDialog
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
