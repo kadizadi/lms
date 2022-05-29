@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { BooklistComponent } from './booklist/booklist.component';
+import { LibrarianPageComponent } from './librarian-page/librarian-page.component';
 import { LibrarianComponent } from './librarian/librarian.component';
 import { LibrarianlistComponent } from './librarian/librarianlist/librarianlist.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'books', component: BooklistComponent },
   { path: 'registration', component: RegistrationComponent }, //canActivate:
   { path: 'namepass', component: NamepassComponent },
-
+  { path: 'librarianpage', component: LibrarianPageComponent },
   // {
   //   path: 'registration',
   //   component: RegistrationComponent,

@@ -1,10 +1,15 @@
-<p>addbook works!</p>
+<p-button (click)="showBasicDialog()" icon="pi pi-plus" label="add book"></p-button>
+<p-dialog header="add book" [(visible)]="displayDilog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <form
+    (ngSubmit)="onSubmit()"
+    ngNativeValidate
+  >
 <div class="row justify-content-md-center">
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="card text-center">
       <img class="card-img-top" src="holder.js/100px180/" alt="" />
       <div class="card-body">
-        <h1 class="card-title text-center">Add Book</h1>
+       
         <div class="form-group">
           <i class="fa fa-book-shape-o-direction"></i>
 
@@ -14,6 +19,7 @@
             class="form-control"
             name="name"
             id=""
+            [(ngModel)]="mybook.name"
             aria-describedby="helpId"
             placeholder="name"
             required
@@ -25,6 +31,7 @@
             class="form-control"
             name="auther"
             id=""
+            [(ngModel)]="mybook.author"
             aria-describedby="helpId"
             placeholder="auther"
             required
@@ -41,3 +48,5 @@
     </div>
   </div>
 </div>
+</form>
+</p-dialog>

@@ -1,0 +1,84 @@
+<br>
+<p-button (click)="showBasicDialog()" icon="pi pi-plus" label="add librarian"></p-button>
+<p-dialog header="add librarian" [(visible)]="displayDilog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <br>
+    <br>
+    <form
+    name="form"
+    (ngSubmit)="onSubmit()"
+    ngNativeValidate
+    #f="ngForm"
+  >
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        [(ngModel)]="mylibrarian.name"
+        type="text"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        required
+      />
+    </div>
+<br>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="mylibrarian.username"
+        type="email"
+        class="form-control"
+        required
+        email
+      />
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="password">Password</label>
+
+      
+      <input
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="mylibrarian.password"
+        type="password"
+        class="form-control"
+        required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+        minlength="6"
+      />
+
+      <!-- <div
+        *ngIf="
+          form.controls['password'].invalid &&
+          form.controls['password'].touched
+        "
+        class="alert"
+      >
+        <span
+          >Minimum eight characters, at least one uppercase letter, one
+          lowercase letter, one number and one special character</span
+        >
+      </div> -->
+    </div>
+    <div class="justify-content-md-center">
+   
+    
+        <p-button icon="pi pi-check" type="submit"  label="Add" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-times" (click)="displayDilog=false" label="Cancel"></p-button>
+</div>
+</form>
+</p-dialog>
+
+
+
+<!-- <div class="row justify-content-md-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <div class="jumbotron">
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

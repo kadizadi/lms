@@ -20,6 +20,7 @@ export class LibrarianlistComponent implements OnInit {
     console.log(librarian.name);
     this.myLibrarian.updateLibrarian(librarian).subscribe((deta) => {});
   }
+
   // ngOnInit(): void {}
   Librarians: Librarian[] = [];
   cols: any[] = [];
@@ -31,7 +32,8 @@ export class LibrarianlistComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private myLibrarian: LibrarianService
+    private myLibrarian: LibrarianService,
+   
   ) {}
 
   ngOnInit(): void {

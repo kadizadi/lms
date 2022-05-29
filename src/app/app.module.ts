@@ -43,7 +43,11 @@ import { BorrowlistComponent } from './borrowlist/borrowlist.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdduserComponent } from './adduser/adduser.component';
-
+import { UserPageComponent } from './user-page/user-page.component';
+import { LibrarianPageComponent } from './librarian-page/librarian-page.component';
+import { AddlibrarianComponent } from './addlibrarian/addlibrarian.component';
+import { PasswordModule } from "primeng/password";
+import { DividerModule } from "primeng/divider";
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +63,9 @@ import { AdduserComponent } from './adduser/adduser.component';
     BorrowlistComponent,
     AddbookComponent,
     AdduserComponent,
+    UserPageComponent,
+    LibrarianPageComponent,
+    AddlibrarianComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +93,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    PasswordModule,
+    DividerModule,
 
   ],
   providers: [MessageService, ConfirmationService, HttpClientModule],
