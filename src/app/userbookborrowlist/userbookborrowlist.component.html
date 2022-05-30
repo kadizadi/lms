@@ -1,0 +1,75 @@
+<div class="row justify-content-md-center">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <p-table [value]="Books">
+      <ng-template pTemplate="caption"> Books List </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Author</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book>
+        <tr>
+          <!-- <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="book.name"
+                  (focusout)="focusout(book)"
+                />
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ book.name }}
+              </ng-template>
+            </p-cellEditor>
+          </td> -->
+
+          <td>{{ book.name }}</td>
+
+          <!-- <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="book.author"
+                  (focusout)="focusout(book)"
+                />
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ book.author }}
+              </ng-template>
+            </p-cellEditor>
+          </td> -->
+
+          <td>{{ book.author }}</td>
+          <td>
+            <!--
+            <button
+              pButton
+              pRipple
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success mr-2"
+              (click)="editBook(book)"
+            ></button> -->
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-warning"
+              (click)="borrowBook(book)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<!-- <app-addbook></app-addbook> -->
+<p-confirmDialog
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
