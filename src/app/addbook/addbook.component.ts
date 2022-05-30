@@ -12,13 +12,15 @@ import { BookService } from '../service/book.service';
 export class AddbookComponent implements OnInit {
   mybook: Book = {};
   mybookList: Book[];
-  constructor(private primengConfig: PrimeNGConfig, private mybooks: BookService) { }
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private mybooks: BookService
+  ) {}
 
   ngOnInit(): void {
-    
-    this.mybooks.getbooks().subscribe((deta) => { this.mybookList = deta })
-
-
+    this.mybooks.getbooks().subscribe((deta) => {
+      this.mybookList = deta;
+    });
   }
 
   displayDilog: boolean;
@@ -28,16 +30,14 @@ export class AddbookComponent implements OnInit {
   }
   tempbookid: number = 0;
   onSubmit() {
-
     console.log(this.mybookList);
-    
-    this.mybook.id =19;
+
+    this.mybook.id = 19;
     this.mybook.available = true;
     this.displayDilog = false;
 
     this.mybook.DoPurchase = new Date();
 
-    
     // for (let index = 0; index < this.mybookList.length ; index++) {
 
     //   while (this.tempbookid === this.mybookList[index].id) {
@@ -46,16 +46,11 @@ export class AddbookComponent implements OnInit {
     //   }
 
     // }
-    
-  
+    console.log('new book >>>>>>>>>>>>>>>>> ');
 
-    console.log(this.mybook.DoPurchase);
+    console.log(this.mybook);
 
-    this.mybooks.addBook(this.mybook).subscribe((deta) => { });
+    this.mybooks.addBook(this.mybook).subscribe((deta) => {});
     this.mybook = {};
-
   }
-
-
-
 }

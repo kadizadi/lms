@@ -7,6 +7,7 @@ import { LibrarianlistComponent } from './librarian/librarianlist/librarianlist.
 import { LoginComponent } from './login/login.component';
 import { NamepassComponent } from './namepass/namepass.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { UserPageComponent } from './user-page/user-page.component';
 import { UserComponent } from './user/user.component';
 import { UserlistComponent } from './user/userlist/userlist.component';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent }, //canActivate:
   { path: 'namepass', component: NamepassComponent },
   { path: 'librarianpage', component: LibrarianPageComponent },
+  { path: 'userpage', component: UserPageComponent },
   // {
   //   path: 'registration',
   //   component: RegistrationComponent,

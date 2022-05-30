@@ -47,7 +47,7 @@
           </td> -->
           <td>{{ borrrow.user.name }}</td>
           <td>{{ borrrow.book.name }}</td>
-          <td>{{ borrrow.startdate | date  }}</td>
+          <td>{{ borrrow.startdate | date }}</td>
           <td>
             <!-- <button
               pButton
@@ -59,7 +59,7 @@
             <button
               pButton
               pRipple
-              icon="pi pi-trash"
+              icon="pi pi-refresh"
               class="p-button-rounded p-button-warning"
               (click)="deleteUser(borrrow)"
             ></button>

@@ -11,6 +11,8 @@ import { UserComponent } from '../user/user.component';
 import { Book } from '../entites/Book';
 import { formatDate } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { BorrowService } from '../service/borrow.service';
+import { BookService } from '../service/book.service';
 @Component({
   selector: 'app-borrowlist',
   templateUrl: './borrowlist.component.html',
@@ -18,7 +20,7 @@ import { DatePipe } from '@angular/common';
   providers: [MessageService, ConfirmationService],
 })
 export class BorrowlistComponent implements OnInit {
-  borrows: Borrow[] = [];
+  borrows: Borrow[];
   cols: any[] = [];
   productDialog: boolean;
   submitted: boolean;
@@ -28,48 +30,53 @@ export class BorrowlistComponent implements OnInit {
   // mydate?: Date;
   constructor(
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private myborrows: BorrowService,
+    private mybooks: BookService
   ) {}
 
   focusout(borrow: Borrow) {
     console.log(borrow.id); //put update insted
   }
 
-  user: User = {
-    name: 'k',
-    username: 'k@k.com',
-    password: '123',
-    enabled: true,
-  };
-  book: Book = {
-    name: 'k',
-    author: 'kadi',
-    available: true,
-  };
+  // user: User = {
+  //   name: 'k',
+  //   username: 'k@k.com',
+  //   password: '123',
+  //   enabled: true,
+  // };
+  // book: Book = {
+  //   name: 'k',
+  //   author: 'kadi',
+  //   available: true,
+  // };
   todayWithPipe: string;
   pipe = new DatePipe('en-US');
   ngOnInit(): void {
     // this.todayWithPipe = this.pipe.transform(date, 'yyyy.MM.dd');
-    this.borrows = [
-      {
-        id: 1,
-        available: true,
-        startdate: this.date,
-        enddate: this.date,
-        returndate: this.date,
-        user: this.user,
-        book: this.book,
-      },
-      {
-        id: 2,
-        available: true,
-        startdate: this.date,
-        enddate: this.date,
-        returndate: this.date,
-        user: this.user,
-        book: this.book,
-      },
-    ];
+    // this.borrows = [
+    //   {
+    //     id: 1,
+    //     available: true,
+    //     startdate: this.date,
+    //     enddate: this.date,
+    //     returndate: this.date,
+    //     user: this.user,
+    //     book: this.book,
+    //   },
+    //   {
+    //     id: 2,
+    //     available: true,
+    //     startdate: this.date,
+    //     enddate: this.date,
+    //     returndate: this.date,
+    //     user: this.user,
+    //     book: this.book,
+    //   },
+    // ];
+    this.myborrows.getBorrows().subscribe((data) => {
+      this.borrows = data;
+    });
     this.cols = [
       { field: 'id', header: 'Id' },
 
@@ -110,8 +117,11 @@ export class BorrowlistComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        // this.borrow.book.available = true;
+        //this.mybooks.updateBook(borrow.book!).subscribe((data) => {});
+        this.myborrows.deleteBorrow(borrow).subscribe((data) => {});
         this.borrows = this.borrows.filter((val) => val.id !== borrow.id);
-        // this.user = null;
+
         this.messageService.add({
           severity: 'success',
           summary: 'Successful',

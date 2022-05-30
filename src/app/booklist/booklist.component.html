@@ -11,45 +11,43 @@
       </ng-template>
       <ng-template pTemplate="body" let-book>
         <tr>
-
-            <td pEditableColumn>
-              <p-cellEditor>
-                <ng-template pTemplate="input">
-                  <input
-                    pInputText
-                    type="text"
-                    [(ngModel)]="book.name"
-                    (focusout)="focusout(book)"
-                  />
-                </ng-template>
-                <ng-template pTemplate="output">
-                  {{ book.name }}
-                </ng-template>
-              </p-cellEditor>
-            </td>
-  
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="book.name"
+                  (focusout)="focusout(book)"
+                />
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ book.name }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
 
           <!-- <td>{{ book.name }}</td> -->
-          
-            <td pEditableColumn>
-              <p-cellEditor>
-                <ng-template pTemplate="input">
-                  <input
-                    pInputText
-                    type="text"
-                    [(ngModel)]="book.author"
-                    (focusout)="focusout(book)"
-                  />
-                </ng-template>
-                <ng-template pTemplate="output">
-                  {{ book.author }}
-                </ng-template>
-              </p-cellEditor>
-            </td>
-  
+
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="book.author"
+                  (focusout)="focusout(book)"
+                />
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ book.author }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+
           <!-- <td>{{ book.author }}</td> -->
-           <td>
-             <!--
+          <td>
+            <!--
             <button
               pButton
               pRipple
@@ -75,5 +73,3 @@
   header="Confirmation"
   icon="pi pi-exclamation-triangle"
 ></p-confirmDialog>
-<br>
-<app-addbook></app-addbook>

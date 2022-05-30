@@ -48,6 +48,7 @@ import { LibrarianPageComponent } from './librarian-page/librarian-page.componen
 import { AddlibrarianComponent } from './addlibrarian/addlibrarian.component';
 import { PasswordModule } from "primeng/password";
 import { DividerModule } from "primeng/divider";
+import { UserbookborrowlistComponent } from './userbookborrowlist/userbookborrowlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { DividerModule } from "primeng/divider";
     UserPageComponent,
     LibrarianPageComponent,
     AddlibrarianComponent,
+    UserbookborrowlistComponent,
   ],
   imports: [
     BrowserModule,
